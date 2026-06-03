@@ -7,302 +7,60 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --rojo:#C0392B;
-  --rojo-dark:#96281B;
-  --verde:#1E8449;
-  --verde-light:#D5F5E3;
-  --rojo-light:#FADBD8;
-  --amarillo:#D4AC0D;
-  --amarillo-light:#FEF9E7;
-  --gris:#F4F6F8;
-  --gris2:#ECF0F1;
-  --texto:#1A1A2E;
-  --texto-sec:#566573;
-  --borde:#D5D8DC;
-  --blanco:#FFFFFF;
+  --rojo:#C0392B;--rojo-dark:#96281B;--verde:#1E8449;--verde-light:#D5F5E3;
+  --rojo-light:#FADBD8;--amarillo:#D4AC0D;--amarillo-light:#FEF9E7;
+  --gris:#F4F6F8;--gris2:#ECF0F1;--texto:#1A1A2E;--texto-sec:#566573;
+  --borde:#D5D8DC;--blanco:#FFFFFF;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:'DM Sans',sans-serif;
-  background:#F0F2F5;
-  color:var(--texto);
-  min-height:100vh;
-}
-
-/* ── HEADER ── */
-header{
-  background:var(--rojo);
-  background-image:repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(255,255,255,.03) 10px,
-    rgba(255,255,255,.03) 20px
-  );
-  padding:2.5rem 1.5rem 2rem;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-}
-header::after{
-  content:'';
-  position:absolute;
-  bottom:-1px;left:0;right:0;
-  height:28px;
-  background:#F0F2F5;
-  clip-path:ellipse(55% 100% at 50% 100%);
-}
-.header-badge{
-  display:inline-block;
-  background:rgba(255,255,255,.18);
-  color:#fff;
-  font-family:'Syne',sans-serif;
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  padding:4px 14px;
-  border-radius:99px;
-  margin-bottom:1rem;
-  border:1px solid rgba(255,255,255,.3);
-}
-header h1{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(1.5rem,4vw,2.4rem);
-  font-weight:800;
-  color:#fff;
-  line-height:1.15;
-  margin-bottom:.5rem;
-}
-header p{
-  font-size:14px;
-  color:rgba(255,255,255,.8);
-  font-weight:300;
-}
-
-/* ── MAIN ── */
-main{
-  max-width:600px;
-  margin:0 auto;
-  padding:2rem 1.25rem 3rem;
-}
-
-/* ── CARD ── */
-.card{
-  background:var(--blanco);
-  border-radius:16px;
-  box-shadow:0 2px 12px rgba(0,0,0,.07);
-  margin-bottom:1.25rem;
-  overflow:hidden;
-}
-.card-title{
-  font-family:'Syne',sans-serif;
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--texto-sec);
-  padding:.85rem 1.4rem;
-  border-bottom:1px solid var(--gris2);
-  background:var(--gris);
-}
+body{font-family:'DM Sans',sans-serif;background:#F0F2F5;color:var(--texto);min-height:100vh;}
+header{background:var(--rojo);background-image:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,.03) 10px,rgba(255,255,255,.03) 20px);padding:2.5rem 1.5rem 2rem;text-align:center;position:relative;overflow:hidden;}
+header::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:28px;background:#F0F2F5;clip-path:ellipse(55% 100% at 50% 100%);}
+.header-badge{display:inline-block;background:rgba(255,255,255,.18);color:#fff;font-family:'Syne',sans-serif;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:4px 14px;border-radius:99px;margin-bottom:1rem;border:1px solid rgba(255,255,255,.3);}
+header h1{font-family:'Syne',sans-serif;font-size:clamp(1.5rem,4vw,2.4rem);font-weight:800;color:#fff;line-height:1.15;margin-bottom:.5rem;}
+header p{font-size:14px;color:rgba(255,255,255,.8);font-weight:300;}
+main{max-width:600px;margin:0 auto;padding:2rem 1.25rem 3rem;}
+.card{background:var(--blanco);border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);margin-bottom:1.25rem;overflow:hidden;}
+.card-title{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--texto-sec);padding:.85rem 1.4rem;border-bottom:1px solid var(--gris2);background:var(--gris);}
 .card-body{padding:1.4rem}
-
-/* ── INPUT ── */
-.input-wrap{position:relative}
-label.input-label{
-  display:block;
-  font-size:13px;
-  font-weight:500;
-  color:var(--texto-sec);
-  margin-bottom:8px;
-}
-input[type=date]{
-  width:100%;
-  font-family:'DM Sans',sans-serif;
-  font-size:18px;
-  font-weight:500;
-  padding:14px 16px;
-  border:2px solid var(--borde);
-  border-radius:12px;
-  color:var(--texto);
-  background:#fff;
-  transition:border .2s,box-shadow .2s;
-  cursor:pointer;
-}
-input[type=date]:focus{
-  outline:none;
-  border-color:var(--rojo);
-  box-shadow:0 0 0 4px rgba(192,57,43,.1);
-}
-.hoy-chip{
-  display:inline-block;
-  margin-top:10px;
-  font-size:12px;
-  color:var(--texto-sec);
-  background:var(--gris2);
-  padding:4px 12px;
-  border-radius:99px;
-  cursor:pointer;
-  transition:background .2s;
-  border:none;
-  font-family:'DM Sans',sans-serif;
-}
-.hoy-chip:hover{background:var(--borde)}
-
-/* ── MÉTRICAS ── */
-.metricas{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:1rem;
-  margin-bottom:1.25rem;
-}
-.metrica{
-  background:var(--blanco);
-  border-radius:16px;
-  box-shadow:0 2px 12px rgba(0,0,0,.07);
-  padding:1.25rem 1rem;
-  text-align:center;
-}
-.metrica-label{
-  font-size:11px;
-  font-weight:600;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--texto-sec);
-  margin-bottom:.5rem;
-}
-.metrica-val{
-  font-family:'Syne',sans-serif;
-  font-size:3rem;
-  font-weight:800;
-  line-height:1;
-  color:var(--texto);
-  transition:color .3s;
-}
+label.input-label{display:block;font-size:13px;font-weight:500;color:var(--texto-sec);margin-bottom:8px;}
+input[type=date]{width:100%;font-family:'DM Sans',sans-serif;font-size:18px;font-weight:500;padding:14px 16px;border:2px solid var(--borde);border-radius:12px;color:var(--texto);background:#fff;transition:border .2s,box-shadow .2s;cursor:pointer;}
+input[type=date]:focus{outline:none;border-color:var(--rojo);box-shadow:0 0 0 4px rgba(192,57,43,.1);}
+.metricas{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem;}
+.metrica{background:var(--blanco);border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);padding:1.25rem 1rem;text-align:center;}
+.metrica-label{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--texto-sec);margin-bottom:.5rem;}
+.metrica-val{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;line-height:1;color:var(--texto);transition:color .3s;}
 .metrica-sub{font-size:12px;color:var(--texto-sec);margin-top:.4rem}
-
-/* ── PROGRESS ── */
-.progress-section{
-  background:var(--blanco);
-  border-radius:16px;
-  box-shadow:0 2px 12px rgba(0,0,0,.07);
-  padding:1.25rem 1.4rem;
-  margin-bottom:1.25rem;
-}
-.progress-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:.75rem;
-}
-.progress-title{
-  font-size:12px;
-  font-weight:600;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--texto-sec);
-}
-.progress-pct{
-  font-family:'Syne',sans-serif;
-  font-size:14px;
-  font-weight:700;
-  color:var(--texto);
-}
-.bar-bg{
-  background:var(--gris2);
-  border-radius:99px;
-  height:10px;
-  overflow:hidden;
-}
-.bar-fill{
-  height:100%;
-  border-radius:99px;
-  background:var(--verde);
-  transition:width .6s cubic-bezier(.4,0,.2,1),background .3s;
-}
-.bar-labels{
-  display:flex;
-  justify-content:space-between;
-  font-size:11px;
-  color:var(--texto-sec);
-  margin-top:6px;
-}
-
-/* ── ESTADO ── */
-.estado{
-  border-radius:16px;
-  padding:1.4rem 1.5rem;
-  text-align:center;
-  font-family:'Syne',sans-serif;
-  font-size:1.05rem;
-  font-weight:700;
-  line-height:1.4;
-  transition:all .3s;
-  margin-bottom:1.25rem;
-}
+.progress-section{background:var(--blanco);border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);padding:1.25rem 1.4rem;margin-bottom:1.25rem;}
+.progress-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem;}
+.progress-title{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--texto-sec);}
+.progress-pct{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--texto);}
+.bar-bg{background:var(--gris2);border-radius:99px;height:10px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:99px;background:var(--verde);transition:width .6s cubic-bezier(.4,0,.2,1),background .3s;}
+.bar-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--texto-sec);margin-top:6px;}
+.estado{border-radius:16px;padding:1.4rem 1.5rem;text-align:center;font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;line-height:1.4;transition:all .3s;margin-bottom:1.25rem;}
 .estado.neutral{background:var(--gris2);color:var(--texto-sec)}
 .estado.vigente{background:var(--verde-light);color:var(--verde);border:2px solid var(--verde)}
 .estado.alerta{background:var(--amarillo-light);color:var(--amarillo);border:2px solid var(--amarillo)}
 .estado.vencido{background:var(--rojo-light);color:var(--rojo);border:2px solid var(--rojo)}
 .estado .estado-icon{font-size:2rem;display:block;margin-bottom:.5rem}
 .estado .estado-sub{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:400;margin-top:.4rem;opacity:.85}
-
-/* ── TIMELINE ── */
-.tl-item{
-  display:flex;
-  gap:14px;
-  align-items:flex-start;
-  padding:10px 0;
-  border-bottom:1px solid var(--gris2);
-  position:relative;
-}
+.tl-item{display:flex;gap:14px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--gris2);}
 .tl-item:last-child{border-bottom:none}
-.tl-dot{
-  width:12px;height:12px;
-  border-radius:50%;
-  flex-shrink:0;
-  margin-top:3px;
-  background:var(--borde);
-  transition:background .3s;
-}
+.tl-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;margin-top:3px;background:var(--borde);transition:background .3s;}
 .tl-dot.done{background:var(--verde)}
 .tl-dot.limit{background:var(--rojo)}
 .tl-dot.active{background:var(--amarillo)}
 .tl-info{flex:1}
 .tl-label{font-size:13px;font-weight:500;color:var(--texto)}
 .tl-fecha{font-size:12px;color:var(--texto-sec);margin-top:2px}
-.badge{
-  display:inline-block;
-  padding:2px 8px;
-  border-radius:99px;
-  font-size:11px;
-  font-weight:600;
-  margin-left:6px;
-}
+.badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:600;margin-left:6px;}
 .badge-ok{background:var(--verde-light);color:var(--verde)}
 .badge-bad{background:var(--rojo-light);color:var(--rojo)}
 .badge-warn{background:var(--amarillo-light);color:var(--amarillo)}
-
-/* ── REGLA ── */
-.regla{
-  background:var(--amarillo-light);
-  border-left:4px solid var(--amarillo);
-  border-radius:0 12px 12px 0;
-  padding:.85rem 1.1rem;
-  font-size:13px;
-  color:#7D6608;
-  line-height:1.6;
-}
+.regla{background:var(--amarillo-light);border-left:4px solid var(--amarillo);border-radius:0 12px 12px 0;padding:.85rem 1.1rem;font-size:13px;color:#7D6608;line-height:1.6;margin-bottom:1.25rem;}
 .regla strong{font-weight:600}
-
-/* ── FOOTER ── */
-footer{
-  text-align:center;
-  font-size:12px;
-  color:var(--texto-sec);
-  padding:1.5rem 1rem 2rem;
-}
+footer{text-align:center;font-size:12px;color:var(--texto-sec);padding:1.5rem 1rem 2rem;}
 </style>
 </head>
 <body>
@@ -314,13 +72,10 @@ footer{
 </header>
 
 <main>
-
-  <!-- Regla -->
-  <div class="regla" style="margin-bottom:1.25rem">
-    <strong>Regla:</strong> Un comparendo se considera <strong>vencido</strong> si han transcurrido más de <strong>11 días hábiles</strong> desde la fecha de creación (contando desde el día siguiente).
+  <div class="regla">
+    <strong>Regla:</strong> Un comparendo se considera <strong>vencido</strong> a partir del día hábil <strong>12</strong> desde la fecha de creación. El día 11 aún es válido.
   </div>
 
-  <!-- Fecha entrada -->
   <div class="card">
     <div class="card-title">📅 Fecha de creación del comparendo</div>
     <div class="card-body">
@@ -329,7 +84,6 @@ footer{
     </div>
   </div>
 
-  <!-- Métricas -->
   <div class="metricas">
     <div class="metrica">
       <div class="metrica-label">Días hábiles<br>transcurridos</div>
@@ -343,7 +97,6 @@ footer{
     </div>
   </div>
 
-  <!-- Barra progreso -->
   <div class="progress-section">
     <div class="progress-header">
       <span class="progress-title">Progreso del plazo</span>
@@ -353,28 +106,20 @@ footer{
     <div class="bar-labels"><span>Día 0 · Creación</span><span>Día 11 · Límite</span></div>
   </div>
 
-  <!-- Estado -->
   <div class="estado neutral" id="estadoBox">
     <span class="estado-icon">🔍</span>
     Selecciona la fecha para verificar el estado
   </div>
 
-  <!-- Timeline -->
   <div class="card">
     <div class="card-title">📌 Línea de tiempo</div>
     <div class="card-body" id="timelineBody">
-      <p style="color:var(--texto-sec);font-size:13px;text-align:center;padding:.5rem 0">
-        Ingresa una fecha para ver la línea de tiempo
-      </p>
+      <p style="color:var(--texto-sec);font-size:13px;text-align:center;padding:.5rem 0">Ingresa una fecha para ver la línea de tiempo</p>
     </div>
   </div>
-
 </main>
 
-<footer>
-  Verificador de comparendos electrónicos · Colombia<br>
-  Festivos según Ley 51 de 1983 · Actualizado 2024–2027
-</footer>
+<footer>Verificador de comparendos electrónicos · Colombia<br>Festivos según Ley 51 de 1983 · Actualizado 2024–2027</footer>
 
 <script>
 const festivos = new Set([
@@ -426,21 +171,22 @@ input.addEventListener('change',()=>{
   const pct=Math.min(100,Math.round(transcurridos/11*100));
 
   document.getElementById('mTranscurridos').textContent=transcurridos;
-  document.getElementById('mRestantes').textContent=today>limite?0:restantes;
+  document.getElementById('mRestantes').textContent=restantes;
   document.getElementById('mLimite').textContent='vence: '+fmt(limite);
   document.getElementById('pPct').textContent=pct+'%';
 
   const bar=document.getElementById('barFill');
   bar.style.width=pct+'%';
-  bar.style.background=pct>=100?'#C0392B':pct>=80?'#D4AC0D':'#1E8449';
+  bar.style.background=pct>100?'#C0392B':pct>=80?'#D4AC0D':'#1E8449';
 
   const box=document.getElementById('estadoBox');
-  if(transcurridos>11){
+
+  if(transcurridos>=12){
     box.className='estado vencido';
-    box.innerHTML='<span class="estado-icon">⛔</span>COMPARENDO VENCIDO<div class="estado-sub">Superó los 11 días hábiles. Debe ser excluido, exonerado o eliminado.</div>';
+    box.innerHTML='<span class="estado-icon">⛔</span>COMPARENDO VENCIDO<div class="estado-sub">Han transcurrido '+transcurridos+' días hábiles. Debe ser excluido, exonerado o eliminado.</div>';
   } else if(transcurridos===11){
-    box.className='estado vencido';
-    box.innerHTML='<span class="estado-icon">⛔</span>COMPARENDO VENCIDO<div class="estado-sub">Se cumplieron exactamente los 11 días hábiles. Debe ser excluido, exonerado o eliminado.</div>';
+    box.className='estado alerta';
+    box.innerHTML='<span class="estado-icon">⚠️</span>COMPARENDO VIGENTE — ÚLTIMO DÍA<div class="estado-sub">Hoy es el día 11 (último día válido). Mañana quedará vencido.</div>';
   } else if(restantes<=2){
     box.className='estado alerta';
     box.innerHTML='<span class="estado-icon">⚠️</span>COMPARENDO VIGENTE — PRÓXIMO A VENCER<div class="estado-sub">Solo quedan '+restantes+' día(s) hábil(es). Vence el '+fmt(limite)+'.</div>';
@@ -449,23 +195,23 @@ input.addEventListener('change',()=>{
     box.innerHTML='<span class="estado-icon">✅</span>COMPARENDO VIGENTE<div class="estado-sub">Quedan '+restantes+' días hábiles. Vence el '+fmt(limite)+'.</div>';
   }
 
-  // Timeline
   const hitos=[
     {label:'Creación del comparendo',date:creacion,estado:'done'},
     {label:'Día hábil 3',date:addHabil(creacion,3),n:3},
     {label:'Día hábil 6',date:addHabil(creacion,6),n:6},
     {label:'Día hábil 9',date:addHabil(creacion,9),n:9},
-    {label:'Día hábil 11 — Fecha límite',date:limite,n:11,isLimit:true},
+    {label:'Día hábil 11 — Último día válido',date:limite,n:11,isLimit:true},
   ];
 
-  const vencido=transcurridos>11;
+  const vencido=transcurridos>=12;
   const tb=document.getElementById('timelineBody');
   tb.innerHTML=hitos.map(h=>{
     let dot='pending',badge='';
     if(h.estado==='done'){ dot='done'; }
     else if(h.isLimit){
-      dot=vencido?'limit':(today>=h.date?'limit':'pending');
-      badge=vencido?'<span class="badge badge-bad">Vencido</span>':'<span class="badge badge-ok">Límite</span>';
+      if(vencido){ dot='limit'; badge='<span class="badge badge-bad">Vencido</span>'; }
+      else if(today>=h.date){ dot='active'; badge='<span class="badge badge-warn">Último día</span>'; }
+      else { dot='pending'; badge='<span class="badge badge-ok">Límite</span>'; }
     } else {
       dot=today>=h.date?'done':'pending';
     }
