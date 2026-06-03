@@ -73,7 +73,7 @@ footer{text-align:center;font-size:12px;color:var(--texto-sec);padding:1.5rem 1r
 
 <main>
   <div class="regla">
-    <strong>Regla:</strong> Un comparendo se considera <strong>vencido</strong> a partir del día hábil <strong>12</strong> desde la fecha de creación. El día 11 aún es válido.
+    <strong>Regla:</strong> Un comparendo se considera <strong>vencido</strong> a partir del día hábil <strong>11</strong> desde la fecha de creación. El día 10 aún es válido.
   </div>
 
   <div class="card">
@@ -88,7 +88,7 @@ footer{text-align:center;font-size:12px;color:var(--texto-sec);padding:1.5rem 1r
     <div class="metrica">
       <div class="metrica-label">Días hábiles<br>transcurridos</div>
       <div class="metrica-val" id="mTranscurridos">—</div>
-      <div class="metrica-sub">de 11 permitidos</div>
+      <div class="metrica-sub">de 10 permitidos</div>
     </div>
     <div class="metrica">
       <div class="metrica-label">Días hábiles<br>restantes</div>
@@ -103,7 +103,7 @@ footer{text-align:center;font-size:12px;color:var(--texto-sec);padding:1.5rem 1r
       <span class="progress-pct" id="pPct">0%</span>
     </div>
     <div class="bar-bg"><div class="bar-fill" id="barFill" style="width:0%"></div></div>
-    <div class="bar-labels"><span>Día 0 · Creación</span><span>Día 11 · Límite</span></div>
+    <div class="bar-labels"><span>Día 0 · Creación</span><span>Día 10 · Límite</span></div>
   </div>
 
   <div class="estado neutral" id="estadoBox">
@@ -166,9 +166,9 @@ input.addEventListener('change',()=>{
   creacion.setHours(0,0,0,0);
 
   const transcurridos=countHabil(creacion,today);
-  const limite=addHabil(creacion,11);
+  const limite=addHabil(creacion,10);
   const restantes=today>limite?0:countHabil(today,limite);
-  const pct=Math.min(100,Math.round(transcurridos/11*100));
+  const pct=Math.min(100,Math.round(transcurridos/10*100));
 
   document.getElementById('mTranscurridos').textContent=transcurridos;
   document.getElementById('mRestantes').textContent=restantes;
@@ -181,12 +181,12 @@ input.addEventListener('change',()=>{
 
   const box=document.getElementById('estadoBox');
 
-  if(transcurridos>=12){
+  if(transcurridos>=11){
     box.className='estado vencido';
     box.innerHTML='<span class="estado-icon">⛔</span>COMPARENDO VENCIDO<div class="estado-sub">Han transcurrido '+transcurridos+' días hábiles. Debe ser excluido, exonerado o eliminado.</div>';
-  } else if(transcurridos===11){
+  } else if(transcurridos===10){
     box.className='estado alerta';
-    box.innerHTML='<span class="estado-icon">⚠️</span>COMPARENDO VIGENTE — ÚLTIMO DÍA<div class="estado-sub">Hoy es el día 11 (último día válido). Mañana quedará vencido.</div>';
+    box.innerHTML='<span class="estado-icon">⚠️</span>COMPARENDO VIGENTE — ÚLTIMO DÍA<div class="estado-sub">Hoy es el día 10 (último día válido). Mañana quedará vencido.</div>';
   } else if(restantes<=2){
     box.className='estado alerta';
     box.innerHTML='<span class="estado-icon">⚠️</span>COMPARENDO VIGENTE — PRÓXIMO A VENCER<div class="estado-sub">Solo quedan '+restantes+' día(s) hábil(es). Vence el '+fmt(limite)+'.</div>';
@@ -200,7 +200,7 @@ input.addEventListener('change',()=>{
     {label:'Día hábil 3',date:addHabil(creacion,3),n:3},
     {label:'Día hábil 6',date:addHabil(creacion,6),n:6},
     {label:'Día hábil 9',date:addHabil(creacion,9),n:9},
-    {label:'Día hábil 11 — Último día válido',date:limite,n:11,isLimit:true},
+    {label:'Día hábil 10 — Último día válido',date:limite,n:10,isLimit:true},
   ];
 
   const vencido=transcurridos>=12;
