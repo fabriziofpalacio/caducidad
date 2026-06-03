@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --rojo:#C0392B;--rojo-dark:#96281B;--verde:#1E8449;--verde-light:#D5F5E3;
+  --rojo:#C0392B;--verde:#1E8449;--verde-light:#D5F5E3;
   --rojo-light:#FADBD8;--amarillo:#D4AC0D;--amarillo-light:#FEF9E7;
   --gris:#F4F6F8;--gris2:#ECF0F1;--texto:#1A1A2E;--texto-sec:#566573;
   --borde:#D5D8DC;--blanco:#FFFFFF;
@@ -73,7 +73,7 @@ footer{text-align:center;font-size:12px;color:var(--texto-sec);padding:1.5rem 1r
 
 <main>
   <div class="regla">
-    <strong>Regla:</strong> Un comparendo se considera <strong>vencido</strong> a partir del día hábil <strong>11</strong> desde la fecha de creación. El día 10 aún es válido.
+    <strong>Regla:</strong> Un comparendo se considera <strong>vencido</strong> a partir del día hábil <strong>11</strong> desde la fecha de creación. El día 10 es el último día válido.
   </div>
 
   <div class="card">
@@ -197,13 +197,13 @@ input.addEventListener('change',()=>{
 
   const hitos=[
     {label:'Creación del comparendo',date:creacion,estado:'done'},
-    {label:'Día hábil 3',date:addHabil(creacion,3),n:3},
-    {label:'Día hábil 6',date:addHabil(creacion,6),n:6},
-    {label:'Día hábil 9',date:addHabil(creacion,9),n:9},
-    {label:'Día hábil 10 — Último día válido',date:limite,n:10,isLimit:true},
+    {label:'Día hábil 3',date:addHabil(creacion,3)},
+    {label:'Día hábil 5',date:addHabil(creacion,5)},
+    {label:'Día hábil 8',date:addHabil(creacion,8)},
+    {label:'Día hábil 10 — Último día válido',date:limite,isLimit:true},
   ];
 
-  const vencido=transcurridos>=12;
+  const vencido=transcurridos>=11;
   const tb=document.getElementById('timelineBody');
   tb.innerHTML=hitos.map(h=>{
     let dot='pending',badge='';
